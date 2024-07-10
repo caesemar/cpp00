@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:27:06 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/07 17:29:14 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/07/10 18:49:16 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 #include <iostream>
 #include <string>
+
+void Add()
+{
+
+}
 
 int main(int argc, char ** argv)
 {
