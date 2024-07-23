@@ -3,6 +3,7 @@ CC = c++
 FLAGS = -c -Wall -Wextra -Werror 
 RM = /bin/rm -f
 SRC = ex01.cpp
+HDR = -I Phonebook.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -12,7 +13,7 @@ all: $(NAME)
 	@${CC} ${FLAGS} $^ -o $@
 
 $(NAME):  $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CC) $(OBJ) $(HDR) -o $(NAME)
 	@echo "Compiling $(NAME)..."
 
 clean:

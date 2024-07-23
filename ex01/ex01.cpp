@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:27:06 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/10 18:49:16 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/07/21 19:19:12 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,33 @@
 
 #include <iostream>
 #include <string>
-
-void Add()
-{
-
-}
+#include "Phonebook.hpp"
 
 int main(int argc, char ** argv)
 {
-    std::cout << "This program works like a phone book\n"<< "Use:\n-Add: Adds a new contact to the PhoneBook\n-Search: Searchs for already existing contacts\n-Exit: Exit the program"<<std::endl;
+    Phonebook phonebook;
+    std::string command;
+    int index = 0;
     while (1)
     {
-        std::string command;
         std::cout << "Enter a command: ";
         std::getline(std::cin, command);
-        if (command == "Add")
+        if (command == "ADD")
+            phonebook.Add(index++);
+        else if (command == "SEARCH")
         {
-            std::cout << "Add" << std::endl;
+            if (index == 0)
+                std::cout << "No contacts to search" << std::endl;
+            else
+                phonebook.Search();
         }
-        else if (command == "Search")
+        else if (command == "EXIT")
         {
-            std::cout << "Search" << std::endl;
-        }
-        else if (command == "Exit")
-        {
-            std::cout << "Exit" << std::endl;
+            phonebook.Exit();
             break;
         }
         else
-        {
             std::cout << "Invalid command" << std::endl;
-        }
     }
     return 0;
 }

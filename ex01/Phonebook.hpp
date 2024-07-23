@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:26:55 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/10 19:11:13 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/07/21 19:22:36 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Phonebook
     public:
         Phonebook();
         ~Phonebook();
-        void Add();
+        void Add(int _index);
         void Search();
         void Exit();
     class contacts
@@ -47,8 +47,59 @@ Phonebook::~Phonebook()
 {
 }
 
-void Phonebook::Add()
+void Phonebook::Add(int _index)
 {
-    
+    if (_index < 8)
+    {
+        std::cout << "Enter the first name: ";
+        std::getline(std::cin, _contacts[_index]._first_name);
+        std::cout << "Enter the last name: ";
+        std::getline(std::cin, _contacts[_index]._last_name);
+        std::cout << "Enter the nickname: ";
+        std::getline(std::cin, _contacts[_index]._nickname);
+        std::cout << "Enter the phone number: ";
+        std::getline(std::cin, _contacts[_index]._phone_number);
+        std::cout << "Enter the darkest secret: ";
+        std::getline(std::cin, _contacts[_index]._darkest_secret);
+    }
+    else
+    {
+        std::cout << "The phonebook is full" << std::endl;
+    }
+}
+void Phonebook::Search()
+{
+    if (_index == 0)
+    {
+        std::cout << "The phonebook is empty" << std::endl;
+    }
+    else
+    {
+        std::cout << "     index|first name| last name|  nickname" << std::endl;
+        for (int i = 0; i < _index; i++)
+        {
+            std::cout << "         " << i << "|" << _contacts[i]._first_name << "|" << _contacts[i]._last_name << "|" << _contacts[i]._nickname << std::endl;
+        }
+        std::string index;
+        std::cout << "Enter the index of the contact: ";
+        std::getline(std::cin, index);
+        if (index.length() == 1 && index[0] >= '0' && index[0] <= '7')
+        {
+            int i = index[0] - '0';
+            std::cout << "First name: " << _contacts[i]._first_name << std::endl;
+            std::cout << "Last name: " << _contacts[i]._last_name << std::endl;
+            std::cout << "Nickname: " << _contacts[i]._nickname << std::endl;
+            std::cout << "Phone number: " << _contacts[i]._phone_number << std::endl;
+            std::cout << "Darkest secret: " << _contacts[i]._darkest_secret << std::endl;
+        }
+        else
+        {
+            std::cout << "Invalid index" << std::endl;
+        }
+    }
+}
+void Phonebook::Exit()
+{
+    std::cout << "Exit" << std::endl;
 }
 #endif
