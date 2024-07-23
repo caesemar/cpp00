@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:26:55 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/21 19:22:36 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/07/23 18:33:05 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Phonebook
     public:
         Phonebook();
         ~Phonebook();
-        void Add(int _index);
-        void Search();
+        int Add(int _index);
+        void Search(int _index);
         void Exit();
     class contacts
     {
@@ -47,7 +47,7 @@ Phonebook::~Phonebook()
 {
 }
 
-void Phonebook::Add(int _index)
+int Phonebook::Add(int _index)
 {
     if (_index < 8)
     {
@@ -61,13 +61,20 @@ void Phonebook::Add(int _index)
         std::getline(std::cin, _contacts[_index]._phone_number);
         std::cout << "Enter the darkest secret: ";
         std::getline(std::cin, _contacts[_index]._darkest_secret);
+        if (_contacts[_index]._first_name.empty() || _contacts[_index]._last_name.empty() || _contacts[_index]._nickname.empty() || _contacts[_index]._phone_number.empty() || _contacts[_index]._darkest_secret.empty())
+        {
+            std::cout << "Invalid contact" << std::endl;
+            _contacts[_index]._first_name.clear();
+            _contacts[_index]._last_name.clear();
+            _contacts[_index]._nickname.clear();
+            _contacts[_index]._phone_number.clear();
+            _contacts[_index]._darkest_secret.clear();
+            return 1;
+        }
     }
-    else
-    {
-        std::cout << "The phonebook is full" << std::endl;
-    }
+    return 0;
 }
-void Phonebook::Search()
+void Phonebook::Search(int _index)
 {
     if (_index == 0)
     {
@@ -75,7 +82,7 @@ void Phonebook::Search()
     }
     else
     {
-        std::cout << "     index|first name| last name|  nickname" << std::endl;
+        std::cout << "index | first name | last name | nickname" << std::endl;
         for (int i = 0; i < _index; i++)
         {
             std::cout << "         " << i << "|" << _contacts[i]._first_name << "|" << _contacts[i]._last_name << "|" << _contacts[i]._nickname << std::endl;
