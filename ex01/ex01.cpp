@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:27:06 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/23 18:43:44 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/07/23 19:22:57 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ int main(int argc, char ** argv)
                 index = -1;
             index++;
             result = phonebook.Add(index);
-            std::cout << result << std::endl;   
             if (result == 1)
                 index--;
-            std::cout << index << std::endl; 
             if (contacs_filled < 8 && result == 0)
                 contacs_filled++;
         }
