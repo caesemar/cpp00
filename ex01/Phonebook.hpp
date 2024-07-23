@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:26:55 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/23 19:46:19 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/07/23 19:48:34 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Phonebook
         int Add(int _index);
         void Search(int _index);
         void Exit();
-        void SignalHandler(int signal);
     class contacts
     {
         public:
