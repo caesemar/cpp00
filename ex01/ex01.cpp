@@ -6,13 +6,14 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:27:06 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/23 19:25:14 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/07/23 19:46:14 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
 #include "Phonebook.hpp"
+
 
 int main(int argc, char ** argv)
 {
@@ -21,10 +22,16 @@ int main(int argc, char ** argv)
     int index = -1;
     int contacs_filled = 0;
     int result = 0;
+
     while (1)
     {
         std::cout << "Enter a command: ";
         std::getline(std::cin, command);
+        if (std::cin.eof())
+        {
+            phonebook.Exit();
+            break;
+        }
         if (command == "ADD")
         {
             if (index == 7)
