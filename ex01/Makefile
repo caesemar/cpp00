@@ -1,20 +1,31 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/24 19:37:20 by jocasado          #+#    #+#              #
+#    Updated: 2024/07/24 19:37:22 by jocasado         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = PhoneBook
-CC = c++
-FLAGS = -c -Wall -Wextra -Werror 
-RM = /bin/rm -f
+CPP = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
+RM = rm -rf
 SRC = ex01.cpp
-HDR = -I Phonebook.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-.c.o:
-	@${CC} ${FLAGS} $^ -o $@
-
 $(NAME):  $(OBJ)
-	@$(CC) $(OBJ) $(HDR) -o $(NAME)
+	@$(CPP) ${FLAGS} $(OBJ) -o $(NAME)
 	@echo "Compiling $(NAME)..."
+
+%.o: %.cpp
+	@${CPP} ${FLAGS} -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)

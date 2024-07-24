@@ -6,28 +6,28 @@
 #    By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/07 17:27:27 by jocasado          #+#    #+#              #
-#    Updated: 2024/07/07 17:27:30 by jocasado         ###   ########.fr        #
+#    Updated: 2024/07/24 19:35:45 by jocasado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
 NAME = megaphone
-CC = c++
-FLAGS = -c -Wall -Wextra -Werror 
-RM = /bin/rm -f
+CPP = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
+RM = rm -rf
 SRC = megaphone.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-.c.o:
-	@${CC} ${FLAGS} $^ -o $@
-
 $(NAME):  $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CPP) ${FLAGS} $(OBJ) -o $(NAME)
 	@echo "Compiling $(NAME)..."
+
+%.o: %.cpp
+	@${CPP} ${FLAGS} -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)
