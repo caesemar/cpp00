@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 19:13:51 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/24 19:37:44 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/07/24 19:39:31 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #ifndef CONTACTS_HPP
 # define CONTACTS_HPP
 # include <iostream>
-# include <string>
     class contacts
     {
         public:
