@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:27:06 by jocasado          #+#    #+#             */
-/*   Updated: 2024/07/24 19:37:53 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:35:18 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ void Phonebook::Search(int _index)
     int space_numer_1 = 0;
     int space_numer_2 = 0;
     int space_numer_3 = 0;
+    std::string first_name_short;
+    std::string last_name_short;
+    std::string nickname_short;
+
     if (_index == 0)
     {
         std::cout << "The phonebook is empty" << std::endl;
@@ -58,24 +62,30 @@ void Phonebook::Search(int _index)
         for (int i = 0; i < _index; i++)
         {
             if (_contacts[i]._first_name.length() > 10)
-                _contacts[i]._first_name = _contacts[i]._first_name.substr(0, 9) + ".";
+                first_name_short = _contacts[i]._first_name.substr(0, 9) + ".";
+            else
+                first_name_short = _contacts[i]._first_name;
             if (_contacts[i]._last_name.length() > 10)
-                _contacts[i]._last_name = _contacts[i]._last_name.substr(0, 9) + ".";
+                last_name_short = _contacts[i]._last_name.substr(0, 9) + ".";
+            else
+                last_name_short = _contacts[i]._last_name;
             if (_contacts[i]._nickname.length() > 10)
-                _contacts[i]._nickname = _contacts[i]._nickname.substr(0, 9) + ".";
+                nickname_short = _contacts[i]._nickname.substr(0, 9) + ".";
+            else
+                nickname_short = _contacts[i]._nickname;
             space_numer_1 = 10 - _contacts[i]._first_name.length();
             space_numer_2 = 10 - _contacts[i]._last_name.length();
             space_numer_3 = 10 - _contacts[i]._nickname.length();
             std::cout << "         " << i << "|";
             for (int j = 0; j < space_numer_1; j++)
                 std::cout << " ";
-            std::cout << _contacts[i]._first_name << "|";
+            std::cout << first_name_short << "|";
             for (int j = 0; j < space_numer_2; j++)
                 std::cout << " ";
-            std::cout << _contacts[i]._last_name << "|";
+            std::cout << last_name_short << "|";
             for (int j = 0; j < space_numer_3; j++)
                 std::cout << " ";
-            std::cout << _contacts[i]._nickname << std::endl;
+            std::cout << nickname_short << std::endl;
         }
         std::string index;
         std::cout << "Enter the index of the contact: ";
