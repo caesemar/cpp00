@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:27:06 by jocasado          #+#    #+#             */
-/*   Updated: 2024/10/03 20:13:13 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:50:47 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,21 @@ std::string contacts::get_darkest_secret()
 {
     return (_darkest_secret);
 }
+int Is_Printable(std::string str)
+{
+    int i;
+    int lenght;
+
+    i = 0;
+    lenght = str.length();
+    while (i < lenght)
+    {
+        if (str[i] < 32 || str[i] > 126)
+            return 1;
+        i++;
+    }
+    return 0;
+}
 
 int Phonebook::Add(int _index)
 {
@@ -73,6 +88,16 @@ int Phonebook::Add(int _index)
         if (_first_name.empty() || _last_name.empty() || _nickname.empty() || _phone_number.empty() || _darkest_secret.empty())
         {
             std::cout << "Invalid contact" << std::endl;
+            _first_name.clear();
+            _last_name.clear();
+            _nickname.clear();
+            _phone_number.clear();
+            _darkest_secret.clear();
+            return 1;
+        }
+        if (Is_Printable(_first_name)|| Is_Printable(_last_name) || Is_Printable(_nickname) ||  Is_Printable(_phone_number) || Is_Printable(_darkest_secret))
+        {
+            std::cout << "Invalid character on contact" << std::endl;
             _first_name.clear();
             _last_name.clear();
             _nickname.clear();
@@ -177,6 +202,11 @@ int main()
     {
         std::cout << "Enter a command: ";
         std::getline(std::cin, command);
+        if (std::cin.eof())
+        {
+            phonebook.Exit();
+            break;
+        }
         if (command == "ADD")
         {
             if (index == 7)
