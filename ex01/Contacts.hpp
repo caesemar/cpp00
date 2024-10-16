@@ -6,14 +6,13 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 19:13:51 by jocasado          #+#    #+#             */
-/*   Updated: 2024/10/16 18:34:24 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:54:54 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef CONTACTS_HPP
 # define CONTACTS_HPP
-# include <iostream>
     class contacts
     {
         public:

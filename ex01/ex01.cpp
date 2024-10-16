@@ -6,7 +6,7 @@
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:27:06 by jocasado          #+#    #+#             */
-/*   Updated: 2024/10/16 18:50:47 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:57:29 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ std::string contacts::get_darkest_secret()
 {
     return (_darkest_secret);
 }
+
 int Is_Printable(std::string str)
 {
     int i;
