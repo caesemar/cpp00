@@ -6,7 +6,7 @@
 #    By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/24 19:37:20 by jocasado          #+#    #+#              #
-#    Updated: 2024/07/24 19:37:22 by jocasado         ###   ########.fr        #
+#    Updated: 2024/10/17 15:43:31 by jocasado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = PhoneBook
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-SRC = ex01.cpp
+SRC = main.cpp Phonebook.cpp Contacts.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

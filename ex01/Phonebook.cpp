@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocasado <jocasado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:27:06 by jocasado          #+#    #+#             */
-/*   Updated: 2024/10/16 18:57:29 by jocasado         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:43:04 by jocasado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,13 @@
 #include "Contacts.hpp"
 
 
-void contacts::setter(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret)
+Phonebook::Phonebook()
 {
-    _first_name = first_name;
-    _last_name = last_name;
-    _nickname = nickname;
-    _phone_number = phone_number;
-    _darkest_secret = darkest_secret;
+    std::cout << "This program works like a phone book\n"<< "Use:\n-ADD: Adds a new contact to the PhoneBook\n-SEARCH: Searchs for already existing contacts\n-EXIT: Exit the program"<<std::endl;
 }
 
-std::string contacts::get_first_name()
+Phonebook::~Phonebook()
 {
-    return (_first_name);
-}
-
-std::string contacts::get_last_name()
-{
-    return (_last_name);
-}
-
-std::string contacts::get_nickname()
-{
-    return (_nickname);
-}
-
-std::string contacts::get_phone_number()
-{
-    return (_phone_number);
-}
-
-std::string contacts::get_darkest_secret()
-{
-    return (_darkest_secret);
 }
 
 int Is_Printable(std::string str)
@@ -191,48 +166,3 @@ void Phonebook::Exit()
     std::cout << "Exit" << std::endl;
 }
 
-int main()
-{
-    Phonebook phonebook;
-    std::string command;
-    int index = -1;
-    int contacs_filled = 0;
-    int result = 0;
-
-    while (1)
-    {
-        std::cout << "Enter a command: ";
-        std::getline(std::cin, command);
-        if (std::cin.eof())
-        {
-            phonebook.Exit();
-            break;
-        }
-        if (command == "ADD")
-        {
-            if (index == 7)
-                index = -1;
-            index++;
-            result = phonebook.Add(index);
-            if (result == 1)
-                index--;
-            if (contacs_filled < 8 && result == 0)
-                contacs_filled++;
-        }
-        else if (command == "SEARCH")
-        {
-            if (contacs_filled == 0)
-                std::cout << "No contacts to search" << std::endl;
-            else
-                phonebook.Search(contacs_filled);
-        }
-        else if (command == "EXIT")
-        {
-            phonebook.Exit();
-            break;
-        }
-        else
-            std::cout << "Invalid command" << std::endl;
-    }
-    return 0;
-}
